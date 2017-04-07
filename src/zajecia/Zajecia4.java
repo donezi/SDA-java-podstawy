@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class Zajecia4 {
     public static void main(String[] args) {
 
-        int dayVariable = 2;
-        int monthVariable = 5;
-        int yearVariable = 2017;
+//        int dayVariable = 2;
+//        int monthVariable = 5;
+//        int yearVariable = 2017;
 
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Insert day:");
@@ -24,23 +24,39 @@ public class Zajecia4 {
 //        displayDate(dayVariable, monthVariable, yearVariable);
 //        displayDate(21, 5, 2015);
 
-        int[] array = {2, 4, 6, 9, 5, 3, -1, 7, -3, -5};
-
-        int minValue = minFromArray(array);
-        int maxValue = maxFromArray(array);
-
-        int sum = sum(array);
-        double avg = avg(array);
-        int span = span(array);
+//        int[] array = {2, 4, 6, 9, 5, 3, -1, 7, -3, -5};
+//
+//        int minValue = minFromArray(array);
+//        int maxValue = maxFromArray(array);
+//
+//        int sum = sum(array);
+//        double avg = avg(array);
+//        int span = span(array);
 
 //        System.out.println("Sum: " + sum);
 //        System.out.println("Suma: " + sum);
 //        System.out.println("Avg: " + avg);
 //        System.out.println("Srednia: " + avg);
 //        System.out.println("Span: "+span);
+        int[] array = getArrayFromUser();
 
         statistic(array);
 //        reverse(array);
+
+
+    }
+
+    public static int[] getArrayFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insert number of element:");
+        int size = scanner.nextInt();
+        int[] array = new int[size];
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Insert " + (i + 1) + " number");
+            array[i] = scanner.nextInt();
+        }
+
+        return array;
     }
 
     public static void statistic(int[] array) {
@@ -58,7 +74,7 @@ public class Zajecia4 {
         System.out.print("[");
         for (int i = array.length - 1; i >= 0; i--) {
             System.out.print(array[i]);
-            if (i!=0) {
+            if (i != 0) {
                 System.out.print(", ");
             }
         }
