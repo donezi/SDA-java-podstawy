@@ -38,12 +38,41 @@ public class Zajecia4 {
 //        System.out.println("Avg: " + avg);
 //        System.out.println("Srednia: " + avg);
 //        System.out.println("Span: "+span);
-        int[] array = getArrayFromUser();
+//        int[] array = getArrayFromUser();
 
-        statistic(array);
+//        statistic(array);
 //        reverse(array);
+//        displayArray(array);
+//        reverseArray(array);
+        int[] arrayFromUser = getArrayFromUser();
+        displayReversed(arrayFromUser);
+
+    }
+//        metoda odwracajaca
+    public static int[] reverseArray(int[] array) {
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[array.length - i - 1];
+//            lub newArray[array.length - i-1] = array[i]
+        }
+    return newArray;
+    }
+
+    public static void displayReversed(int[] array) {
+        displayArray(reverseArray(array));
+
+    }
 
 
+    public static void displayArray(int[] array) {
+        System.out.print("[");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i != array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
     }
 
     public static int[] getArrayFromUser() {
@@ -54,6 +83,7 @@ public class Zajecia4 {
         for (int i = 0; i < array.length; i++) {
             System.out.println("Insert " + (i + 1) + " number");
             array[i] = scanner.nextInt();
+
         }
 
         return array;
