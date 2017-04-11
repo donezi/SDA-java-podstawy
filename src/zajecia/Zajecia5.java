@@ -43,10 +43,34 @@ public class Zajecia5 {
 //        printOneMatrix(3);
 //        cheesBoard(4);
 //        printOneSquareMatrix(5);
-        printChristmassTree(3);
-        printChristmassTree(4);
+//        printChristmassTree(3);
+//        printChristmassTree(4);
+//        homework();
+//        lineOfNumbers(5);
+
     }
 
+    public static void lineOfNumbers(int value) {
+        for (int i = 0; i < value - 1; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("  ");
+            }
+            System.out.println(i + 1);
+        }
+    }
+
+    public static void homework() {
+//        losujemy liczbe 15-25
+//        wywołac metode getArray()
+//        uzyc wygenerowana tablice w metodzie statiscic
+//        dla wylosowanej liczby  - wywolali metode tree(number -12)
+        Random random = new Random();
+        int number = random.nextInt(10) + 15;
+        Zajecia4.statistic(getArray(number));
+//        Zajecia4.statistic(getRandomArray(10, 10, 15));
+        printChristmassTree(number - 12);
+
+    }
 
     public static void printChristmassTree(int a) {
         for (int i = 0; i < a; i++) {
@@ -55,11 +79,16 @@ public class Zajecia5 {
                 System.out.print("  ");
             }
             //gwaizdki
-            for (int j = 0; j < 2*i +1; j++) {
+            for (int j = 0; j < 2 * i + 1; j++) {
                 System.out.print("* ");
-
             }
             System.out.println();
+        }
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a - 1; j++) {
+                System.out.print("  ");
+            }
+            System.out.println("* ");
         }
     }
 
