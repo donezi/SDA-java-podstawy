@@ -18,23 +18,67 @@ public class Zajecia6 {
 //        printPowersOf2(20);
 //        printPowersOf2(valueRandom);
 //        printPowersOf2(valueScanner);
-//        int[] array = {3, 5, 8, 2, 4, 9, 7};
+        int[] array = {3, 5, 8, 2, 4, 9, 7};
 //        sumUntil(array, 20);
 //        avgUntil(array, 5);
 //        int result = game(random.nextInt(100));
 //        System.out.print("Correct! Your result: " + result + " attempts");
-        System.out.println(numberOfDigits(357));
-        System.out.println(3457);
-//        sumOfDigits(357);
-//        sumOfDigits(scanner.nextInt());
+//        System.out.println(numberOfDigits(357));
+//        System.out.println(3457);
+//        System.out.println(sumOfDigits(357));
+//        System.out.println(sumOfDigits(scanner.nextInt()));
+//        System.out.println(sumOfRandom(150));
+//        System.out.println(sumOfRandom(150));
+//        System.out.println(sumOfRandom(150));
+//        Zajecia4.displayArray(numberToArray(357));
+//        Zajecia4.displayArray(numberToArray(1234567));
 
     }
 
-//    public static int sumOfRandom(int value) {
+
+    //    357 -> [3,5,7]
+//    997 -> [9,9,7]
+//    3215 -> [3,2,1,5]
+    public static int[] numberToArray(int number) {
+        int[] array = new int[numberOfDigits(number)];
+        int i = 0;
+        while (i < array.length) {
+            array[array.length - i - 1] = number % 10;
+            number /= 10;
+            i++;
+        }
+        return array;
+    }
+
+    public static int arrayToNumber(int[] array) {
+        int sum = 0;
+        int toMultiply = 1;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[array.length - i - 1] * toMultiply;
+            toMultiply *= 10;
+        }
+//        int i = 0;
+//        while (i < array.length) {
+//            sum+= array[array.length-i-1]*toMultiply;
+//            toMultiply*=10;
+//            i++;
+//        }
+        return sum;
+    }
+
+    public static int sumOfRandom(int value) {
 //        zadanie domowe
-//    losujemy liczby i dodajemy, aż przekroczy value
+//        losujemy liczby i dodajemy, aż przekroczy value
 //        -10, 20
-//    }
+        Random random = new Random();
+        int sum = 0;
+        int i = 0;
+        while (sum < value) {
+            sum += random.nextInt(30) - 10;
+            i++;
+        }
+        return i;
+    }
 
     public static int numberOfDigits(int number) {
         int counter = 0;
@@ -47,14 +91,11 @@ public class Zajecia6 {
     }
 
     public static int sumOfDigits(int number) {
-        int numberDigits = 0;
         int sum = 0;
         while (number != 0) {
             sum += number % 10;
             number /= 10;
-            numberDigits++;
         }
-        System.out.println(sum);
         return sum;
     }
 
