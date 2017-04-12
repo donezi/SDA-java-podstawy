@@ -18,7 +18,7 @@ public class Zajecia6 {
 //        printPowersOf2(20);
 //        printPowersOf2(valueRandom);
 //        printPowersOf2(valueScanner);
-        int[] array = {3, 5, 8, 2, 4, 9, 7};
+//        int[] array = {3, 5, 8, 2, 4, 9, 7};
 //        sumUntil(array, 20);
 //        avgUntil(array, 5);
 //        int result = game(random.nextInt(100));
@@ -35,8 +35,7 @@ public class Zajecia6 {
 
     }
 
-
-    //    357 -> [3,5,7]
+//    357 -> [3,5,7]
 //    997 -> [9,9,7]
 //    3215 -> [3,2,1,5]
     public static int[] numberToArray(int number) {
