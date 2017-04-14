@@ -32,18 +32,18 @@ public class Zajecia7 {
 //        printMartix(flip(fillWithNumbersFromUser(2,4)));
 //        System.out.println((maxValue(fillWithNumbersFromUser(3,3))));
 
-//        int[][]matrix1 = fillWithRandomNumbers(3,4);
-//        int[][]matrix2 = fillWithRandomNumbers(4,5);
-//        int[][]product = product(matrix1, matrix2);
-//        printMartix(matrix1);
-//        System.out.println();
-//        System.out.println("\t*");
-//        System.out.println();
-//        printMartix(matrix2);
-//        System.out.println();
-//        System.out.println("\t=");
-//        System.out.println();
-//        printMartix(product);
+        int[][]matrix1 = fillWithRandomNumbers(3,4);
+        int[][]matrix2 = fillWithRandomNumbers(4,5);
+        int[][]product = product(matrix1, matrix2);
+        printMartix(matrix1);
+        System.out.println();
+        System.out.println("\t*");
+        System.out.println();
+        printMartix(matrix2);
+        System.out.println();
+        System.out.println("\t=");
+        System.out.println();
+        printMartix(product);
 
         //taka ciekawostka
 //        int[][] matrix = fillWithRandomNumbers(3, 3);

@@ -23,26 +23,74 @@ public class Zajecia8 {
 
 //        System.out.println(ananimOf("kontroler"));
 
-        isPalindrom("kajak");
+//        isPalindrom("pajac");
+
+//        System.out.println(sumOfNumbers("Ala ma 2 koty i 3 psy."));
+
+//        startsWith("Ala ma kota", "Ala");
+//        System.out.println(!startsWith("Ala ma kota", "Ala"));
+//        System.out.println(toLowerCase("Ala ma kota"));
 
     }
 
-//    public static String toUpperCase(String message) {
-//
-//    }
-//
-//    public static String toLowerCase(String message) {
-//
-//    }
-//
-//    public static boolean startsWith(String message, String someValue) {
-//
-//        return;
-//    }
-    //Ala ma 2 koty i 3 psy. -> 5
-//    public static int sumOfNumbers(String message) {
-//
-//    }
+
+
+    public static String toUpperCase(String message) {
+        char[] charArray = message.toCharArray();
+        if (charArray[0] >= 97 && charArray[0] <= 122) {
+            charArray[0] -= 32;
+        }
+//        charArray[0] -= (charArray[0] >= 97 && charArray[0] <= 122) ? 32 : 0;
+        return new String(charArray);
+    }
+
+    public static String toLowerCase(String message) {
+        char[] charArray = message.toCharArray();
+        if (charArray[0] >= 65 && charArray[0] <= 90) {
+            charArray[0] += 32;
+        }
+//        charArray[0] += (charArray[0] >= 65 && charArray[0] <= 90) ? 32 : 0;
+        return new String(charArray);
+    }
+
+    public static boolean startsWith(String message, String someValue) {
+        char[] messageCharcters = message.toCharArray();
+        char[] someValueCharacters = someValue.toCharArray();
+        boolean flag = true;
+        int i = 0;
+        while (flag && i < someValueCharacters.length) {
+            if (someValueCharacters[i] != messageCharcters[i]) {
+                flag = false;
+            }
+            i++;
+//            flag = !(someValueCharacters[i] != messageCharcters[i]);
+//            flag = (someValueCharacters[i] == messageCharcters[i]);
+//            i++
+
+            /////////////////////////////////
+
+//        boolean flag = true;
+//        int i =0;
+//        while (flag && i<someValue.length()) {
+//            flag = !(message.charAt(i) != someValue.charAt(i));
+//            i++
+//        }
+        }
+        return flag;
+    }
+
+    //    Ala ma 2 koty i 3 psy. -> 5
+    public static int sumOfNumbers(String message) {
+        int sum = 0;
+        char[] charArray = message.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] >= 48 && charArray[i] <= 57) {
+                sum += charArray[i] - 48;
+//                sum += Character.getNumericValue(charArray[i]);
+            }
+        }
+        return sum;
+    }
 
 
     public static boolean isPalindrom(String message) {
