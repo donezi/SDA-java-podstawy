@@ -24,13 +24,46 @@ public class Zajecia10 {
 
 //        multiplyDigits(12345);
 
-        int[][] matrix = randomMatrix(3, 10, -5);
-        System.out.println(avg(matrix));
+//        int[][] matrix = randomMatrix(3, 10, -5);
+//        System.out.println(avg(matrix));
 
+//        System.out.println(find("Ala ma kot", "kota"));
+//        System.out.println(find("Ala ma kota", "kota"));
+//        System.out.println(find("Ala ma kota", "ma"));
 
+//        System.out.println(countAll("Ala ma kota i ma psa", "ma"));
+//        System.out.println(countAll("Ala ma kota i ma psa", "mam"));
+
+        System.out.println(checkRoundBraces("((2+2)*2)"));
+        System.out.println(checkRoundBraces(")(2+2)*2)"));
+        System.out.println(checkRoundBraces("((2+2)*2"));
 
     }
 
+
+    public static boolean checkRoundBraces(String expression) {
+        char[] charArray = expression.toCharArray();
+        int counter = 0;
+        int i = 0;
+        while (counter >= 0 && i < charArray.length) {
+            if (charArray[i] == '(') {
+                counter++;
+            } else if (charArray[i] == ')') {
+                counter--;
+            }
+            i++;
+        }
+        return counter == 0;
+    }
+
+    public static int countAll(String message, String sentence) {
+        int counter = 0;
+        while (find(message, sentence) != -1) {
+            counter++;
+            message = message.substring(find(message, sentence) + 1);
+        }
+        return counter;
+    }
 
 
     public static double[][] avgMatrix(int[][] matrix1, int[][] matrix2) {
@@ -75,17 +108,23 @@ public class Zajecia10 {
         return (i == charArray.length) ? -1 : i;
     }
 
-//    public static int find(String message, String sentence) {
-//        char[] charArray1 = message.toCharArray();
-//        char[] charArray2 = sentence.toCharArray();
-//        int i = 0;
-//        int
-//        while (i < charArray1.length && charArray1[i] != charArray2 {){
-//
-//        }
-//
-//            return (i == charArray1.length) ? -1 : i;
-//        }
+    public static int find(String message, String sentence) {
+        char[] messageArray = message.toCharArray();
+        char[] sentenceArray = sentence.toCharArray();
+        boolean flag = true;
+        int i = 0;
+        while (flag && i <= messageArray.length - sentenceArray.length) {
+            int j = 0;
+            while (j < sentenceArray.length && messageArray[i + j] == sentenceArray[j]) {
+                j++;
+                if (j == sentenceArray.length) {
+                    flag = false;
+                }
+            }
+            i++;
+        }
+        return flag ? -1 : i - 1;
+    }
 
     public static int countAll(String message, char sentence) {
         char[] charArray = message.toCharArray();
