@@ -31,6 +31,8 @@ public class Zajecia10 {
 
     }
 
+
+
     public static double[][] avgMatrix(int[][] matrix1, int[][] matrix2) {
         double[][] resultMtrix = new double[matrix1.length][matrix1[0].length];
         for (int i = 0; i < matrix1.length; i++) {
