@@ -12,23 +12,46 @@ public class Zajecia11 {
         File file = new File("C:\\Users\\RENT\\IdeaProjects\\SDA-java-podstawy\\file");
 //        readFromFileTest(file);
 //        writeToFileTest(file, "Hello World");
-        Zajecia4.displayArray(readIntegersFromFile(file));
+//        Zajecia4.displayArray(readIntegersFromFile(file));
+        System.out.println(countOddIntegers(file));
+        System.out.println(countWordsIn(file));
 
     }
 
-    public static int[] readIntegersFromFile (File file) throws FileNotFoundException {
+    public static int countWordsIn(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        int counter = 0;
+        while (scanner.hasNext()) {
+            scanner.next();
+            counter++;
+        }
+        return counter;
+    }
+
+    public static int countOddIntegers(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        int counter = 0;
+        while (scanner.hasNextInt()) {
+            if (scanner.nextInt() % 2 == 1) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public static int[] readIntegersFromFile(File file) throws FileNotFoundException {
         int[] array = new int[getLenght(file)];
         Scanner scanner = new Scanner(file);
         for (int i = 0; i < array.length; i++) {
-            array[i]=scanner.nextInt();
+            array[i] = scanner.nextInt();
         }
         return array;
     }
 
-    public static int getLenght (File file) throws FileNotFoundException {
+    public static int getLenght(File file) throws FileNotFoundException {
         Scanner scanner = new Scanner(file);
         int counter = 0;
-        while (scanner.hasNext()){
+        while (scanner.hasNext()) {
             counter++;
             scanner.nextLine();
         }
