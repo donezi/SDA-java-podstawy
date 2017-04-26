@@ -1,0 +1,8 @@
+Jakub 4
+Marcin 3
+Lukasz 1
+Tomasz 0
+Damian 2
+Bartek 2
+James 3
+Marian 2

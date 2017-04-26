@@ -53,8 +53,8 @@ public class QuizInterface {
         System.out.println("Incorrect answer!");
     }
 
-    public void showResult(String name, int result) {
-        System.out.println("Congratulation " + name + "! You finished game with score: " + result);
+    public void showResult(Result result) {
+        System.out.println("Congratulation " + result.getPlayerName() + "! You finished game with score: " + result.getResult());
     }
 
     public void showResult(Result[] results) {

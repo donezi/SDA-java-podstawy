@@ -2,7 +2,9 @@ package zajecia.oop.quiz;
 
 import zajecia.oop.quiz.question.MockQuestionsRepository;
 import zajecia.oop.quiz.question.Question;
+import zajecia.oop.quiz.result.FileResultsRepository;
 import zajecia.oop.quiz.result.MockResultRepository;
+import zajecia.oop.quiz.result.Result;
 
 /**
  * Created by RENT on 2017-04-25.
@@ -10,7 +12,7 @@ import zajecia.oop.quiz.result.MockResultRepository;
 public class Quiz {
     public static void main(String[] args) {
         MockQuestionsRepository questionsRepository = new MockQuestionsRepository();
-        MockResultRepository mockResultRepository = new MockResultRepository();
+        FileResultsRepository resultRepository = new FileResultsRepository("C:\\Users\\RENT\\IdeaProjects\\SDA-java-podstawy\\results.txt");
         QuizInterface quizInterface = new QuizInterface();
 
         boolean gameFlag = true;
@@ -33,10 +35,12 @@ public class Quiz {
                             quizInterface.incorrectAnswer();
                         }
                     }
-                    quizInterface.showResult(playerName, correctAnswersCounter);
+                    Result result = new Result(playerName, correctAnswersCounter);
+                    quizInterface.showResult(result);
+                    resultRepository.add(result);
                     break;
                 case 2:
-                    quizInterface.showTopResult(mockResultRepository.getTopResults(10));
+                    quizInterface.showTopResult(resultRepository.getTopResults(10));
                     break;
                 case 3:
                     gameFlag = false;
