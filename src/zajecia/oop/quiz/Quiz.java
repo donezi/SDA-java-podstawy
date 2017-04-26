@@ -30,7 +30,7 @@ public class Quiz {
             }
             quizInterface.showResult(playerName, correctAnswersCounter );
         } else if (decision == 2) {
-            quizInterface.showResult(mockResultRepository.getAllResults());
+            quizInterface.showTopResult(mockResultRepository.getTopResults(10));
         } else {
             System.out.println("End of game");
         }
