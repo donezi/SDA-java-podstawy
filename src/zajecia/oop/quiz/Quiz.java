@@ -13,29 +13,34 @@ public class Quiz {
         MockResultRepository mockResultRepository = new MockResultRepository();
         QuizInterface quizInterface = new QuizInterface();
 
-        int decision = quizInterface.menu();
-        if (decision == 1) {
-            String playerName = quizInterface.insertName();
-            quizInterface.beforeStart();
-            Question[] questions = questionsRepository.getQuestions();
-            int correctAnswersCounter = 0;
-            for (int i = 0; i < questions.length; i++) {
-                boolean result = quizInterface.showQuestion(questions[i]);
-                if (result) {
-                    quizInterface.correctAnswer();
-                    correctAnswersCounter++;
-                } else {
-                    quizInterface.incorrectAnswer();
+        boolean gameFlag = true;
+        while (gameFlag) {
+            //while (decision !=0 )
+            int decision = quizInterface.menu();
+            if (decision == 1) {
+                String playerName = quizInterface.insertName();
+                quizInterface.beforeStart();
+                
+                Question[] questions = questionsRepository.getQuestions();
+                int correctAnswersCounter = 0;
+                for (int i = 0; i < questions.length; i++) {
+                    boolean result = quizInterface.showQuestion(questions[i]);
+                    if (result) {
+                        quizInterface.correctAnswer();
+                        correctAnswersCounter++;
+                    } else {
+                        quizInterface.incorrectAnswer();
+                    }
                 }
+                quizInterface.showResult(playerName, correctAnswersCounter);
+            } else if (decision == 2) {
+                quizInterface.showTopResult(mockResultRepository.getTopResults(10));
+            } else {
+                gameFlag = false;
             }
-            quizInterface.showResult(playerName, correctAnswersCounter );
-        } else if (decision == 2) {
-            quizInterface.showTopResult(mockResultRepository.getTopResults(10));
-        } else {
-            System.out.println("End of game");
         }
+        quizInterface.afterGameEnded();
     }
-
 }
 //        Question[] questions = questionsRepository.getQuestions();
 //        for (int i = 0; i < questions.length; i++) {

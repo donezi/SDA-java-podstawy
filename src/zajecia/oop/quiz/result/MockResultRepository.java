@@ -11,7 +11,7 @@ public class MockResultRepository {
         results[0] = new Result("Jakub", 3);
         results[1] = new Result("Marcin", 2);
         results[2] = new Result("Blazej", 1);
-        results[3] = new Result("wojciech", 0);
+        results[3] = new Result("Wojciech", 0);
         //dodac do results dodatkowo 2 wyniki
     }
 
