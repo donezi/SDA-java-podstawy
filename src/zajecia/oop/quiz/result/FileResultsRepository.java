@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by RENT on 2017-04-26.
  */
-public class FileResultsRepository {
+public class FileResultsRepository implements ResultsRepository{
 
     private String pathToFile;
 

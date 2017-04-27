@@ -3,7 +3,7 @@ package zajecia.oop.quiz.result;
 /**
  * Created by RENT on 2017-04-25.
  */
-public class MockResultRepository {
+public class MockResultRepository implements ResultsRepository {
     private Result[] results;
 
     private int resultsCounter;
